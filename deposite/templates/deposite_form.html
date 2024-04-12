@@ -1,0 +1,23 @@
+{% extends "base.html" %} {%load static%} {%block stylelink%}
+<link rel="stylesheet" href="{% static 'css/deposite_form.css' %}" />
+{%endblock%} {%block content%}
+<div class="form_container">
+      <div class="container">
+        <h2 class="form_name">Deposit Form</h2>
+        <form method="post">
+          {% csrf_token %}
+          <label for="amount">Deposit Amount:</label>
+          <input
+            type="text"
+            id="amount"
+            name="amount"
+            placeholder="Enter deposit amount"
+            required
+          />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </body>
+  </html>
+</div>
+{%endblock%}

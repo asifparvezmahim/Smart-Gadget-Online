@@ -1,0 +1,21 @@
+.prod_cont{
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column; /* Stack child divs vertically */
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    margin-top: 10%;
+}
+
+
+@media only screen and (max-width: 420px) {
+    .prod_cont{
+        margin-top: 20%;
+
+    }
+
+    .page_title{
+        margin-top: 20%;
+    }
+    
+}

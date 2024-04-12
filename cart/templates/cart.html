@@ -1,0 +1,40 @@
+{% extends "base.html" %} {%load static%} {%block stylelink%}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+{%endblock%} {%block content%}
+<div class="prod_cont">
+  <h2 class="page_title">MY CART</h2>
+  {%for cart in carts%}
+  <div class="card mb-3 card_cont" style="max-width:540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          class="card-img-top image"
+          src="{{cart.product.image.url}}"
+          alt="Card image cap"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{cart.product.name}}</h5>
+            <a class="btn btn-success" href="{%url "purchased_from_details_section" cart.id%}"
+              ><i class="fa-solid fa-cart-shopping"></i
+            ></a>
+          </div>
+          <small>Price : {{cart.price}} Taka</small><br />
+          <div class="d-flex justify-content-between">
+            <small>Discount : {{cart.discount}}%</small><br />
+            <a class="btn btn-danger" href="{%url "dlt_cart" cart.id%}"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
+          </div>
+
+          <small>Delevary Charge : {{cart.delevary_charge}} Taka</small><br />
+          ---------------<small>Total : {{cart.total}} Taka</small>-------------
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+{%endblock%}

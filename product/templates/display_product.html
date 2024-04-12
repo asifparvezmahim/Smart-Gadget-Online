@@ -1,0 +1,33 @@
+{% extends "base.html" %} {%load static%} {%block stylelink%}
+<link rel="stylesheet" href="{% static 'css/disp_pro.css' %}" />
+
+{%endblock%} {%block content%}
+<div class="prod_cont">
+<h2 class="page_title">Visit Our Products</h2>
+  <div class="products">
+    {%for p in products%}
+    <div class="card" style="width: 20rem">
+      <a href="{%url "details" p.id%}"
+        ><img class="card-img-top" src="{{p.image.url}}" alt="Card image cap"
+      /></a>
+      <div class="card-body">
+        <p class="texr-bold">{{p.name}}</p>
+        <div class="d-flex justify-content-between">
+          <h6 class="">Price : {{p.price}}</h6>
+          <h6 class="">Discount : {{p.discount}} %</h6>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <a class="btn p_btn" href="{%url "myCart" p.id%}">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </a>
+          <a class="btn d_btn" href="{%url "purchased_from_product_section" p.id%}">
+            <i class="fas fa-shopping-cart"></i> Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+{%endblock%}

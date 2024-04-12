@@ -1,0 +1,28 @@
+{% extends "base.html" %} {%load static%} {%block stylelink%}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+{%endblock%} {%block content%}
+<div class="details_container">
+  <div class="image_container">
+    <img src="{{image.url}}" alt="" srcset="" />
+  </div>
+
+  <div class="info_container">
+    <h4>Product ID : {{id}}</h4>
+    <h5>Product Name : {{prd_name}}</h5>
+    <h5>About Product : {{prd_details}}</h5>
+    <h6>Available : {{available}} Pieces</h6>
+    <hr />
+    <p>Base Price : <strong>{{prd_price}} Taka</strong></p>
+    <p>Discount : <strong>{{prd_discount}} %</strong></p>
+    <p>Delevary Charge : <strong>{{prd_delCharge}} Taka</strong></p>
+    <div class="d-flex justify-content-evenly">
+      <a class="btn p_btn" href="{%url "myCart" id%}">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </a>
+      <a class="btn d_btn" href="{%url "purchased_from_product_section" id%}">
+        <i class="fas fa-shopping-cart"></i> Buy Now
+      </a>
+    </div>
+  </div>
+</div>
+{%endblock%}
