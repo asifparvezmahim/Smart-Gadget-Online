@@ -30,6 +30,10 @@ SECRET_KEY = "django-insecure-h%4_th%yqct#ib1@*56rw97vm^@llx0-ad2$1**v-l7epoa@0)
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://smart-gadget-online.onrender.com",
+    "https://*.127.0.0.1",
+]
 
 
 # Application definition
