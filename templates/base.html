@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
@@ -14,64 +15,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-
+     <link rel="stylesheet" href="{%static "css/nav.css"%}">
     {%block stylelink%} {%endblock%}
-    <style>
-      .buttons {
-        background-color: #009970;
-        color: #fff;
-        font-size: 14px;
-        padding: 8px 20px;
-        border-radius: 50px;
-        text-decoration: none;
-        transition: 0.3s background-color;
-        margin-left: 10px;
-      }
-
-      .buttons:hover {
-        background-color: #00b383;
-      }
-
-      .navbar-toggler {
-        border: none;
-        font-size: 1.25 rem;
-      }
-
-      .navbar-toggler:focus,
-      .btn-close:focus {
-        box-shadow: none;
-        outlet: none;
-      }
-
-      .nav-link {
-        color: #666777;
-        font-weight: bold;
-      }
-
-      .nav-link:hover,
-      .nav-link:active {
-        color: #000;
-      }
-
-      .nav {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 70px;
-        padding-right: 70px;
-        background-color: orange;
-      }
-
-      .comp_name {
-        font-size: 25px;
-        font-weight: bolder;
-      }
-
-      @media only screen and (max-width: 420px){
-        .nav {
-          padding-left: 10px;
-        }
-      }
-    </style>
+    
   </head>
   <body>
     <nav class="navbar navbar-expand-lg fixed-top nav">
@@ -104,18 +50,16 @@
               <li class="nav-item">
                 <a class="nav-link mx-lg-4" href="{%url "display_products"%}">Products</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-4" href="{%url "user_reg"%}">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-4" href="{%url "user_login"%}">Sign In</a>
-              </li>
+
+
               <li class="nav-item">
                 <a class="nav-link mx-lg-4" href="{%url "depo_form"%}">Deposite Form</a>
               </li>
+
+              {%if user.is_authenticated%}
               <li class="nav-item dropdown mx-lg-4">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  User Records
+                  {{user.username}}'s Records
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item mb-2" href="{%url "profile"%}"><i class="fa-solid fa-user"></i> My Profile</a></li>
@@ -123,6 +67,17 @@
                   <li><a class="dropdown-item mb-2" href="{%url "user_logout"%}"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
                 </ul>
               </li>
+              {%else%}
+              <li class="nav-item dropdown mx-lg-4">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  User Action
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item mb-2" href="{%url "user_login"%}"><i class="fa-solid fa-user"></i> Sign In</a></li>
+                  <li><a class="dropdown-item mb-2" href="{%url "user_reg"%}"><i class="fas fa-cart-plus"></i> Sign Up</a></li>
+                </ul>
+              </li>
+              {%endif%}
 
       
             </ul>

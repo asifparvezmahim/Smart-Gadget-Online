@@ -1,0 +1,55 @@
+
+.buttons {
+background-color: #009970;
+color: #fff;
+font-size: 14px;
+padding: 8px 20px;
+border-radius: 50px;
+text-decoration: none;
+transition: 0.3s background-color;
+margin-left: 10px;
+}
+
+.buttons:hover {
+background-color: #00b383;
+}
+
+.navbar-toggler {
+border: none;
+font-size: 1.25 rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+box-shadow: none;
+outlet: none;
+}
+
+.nav-link {
+color: #666777;
+font-weight: bold;
+}
+
+.nav-link:hover,
+.nav-link:active {
+color: #000;
+}
+
+.nav {
+padding-top: 20px;
+padding-bottom: 20px;
+padding-left: 70px;
+padding-right: 70px;
+background-color: orange;
+}
+
+.comp_name {
+font-size: 25px;
+font-weight: bolder;
+}
+
+@media only screen and (max-width: 420px){
+.nav {
+    padding-left: 10px;
+}
+}
