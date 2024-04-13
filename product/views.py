@@ -1,11 +1,18 @@
 from django.shortcuts import render
 from .models import product_info
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 def diplay_products(request):
     products = product_info.objects.all()
-    return render(request, "display_product.html", {"products": products})
+    # set pagination
+    p = Paginator(product_info.objects.all(), 6)  # Paginator (objects,per page object)
+    page = request.GET.get("page")
+    product = p.get_page(page)
+    return render(
+        request, "display_product.html", {"products": products, "product": product}
+    )
 
 
 def details_page(request, id):

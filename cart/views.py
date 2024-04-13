@@ -8,33 +8,37 @@ from django.contrib import messages
 # add cart button on product showin
 def myCart(request, id):
     user = request.user
-    product = product_info.objects.get(id=id)
+    if user.is_authenticated:
+        product = product_info.objects.get(id=id)
 
-    # Convert values to appropriate types
-    price = product.price
-    delivery_charge = product.delevary_charge
-    discount = product.discount
+        # Convert values to appropriate types
+        price = product.price
+        delivery_charge = product.delevary_charge
+        discount = product.discount
 
-    total = (
-        price - (price * (discount / 100)) + delivery_charge
-    )  # No need to convert to int
+        total = (
+            price - (price * (discount / 100)) + delivery_charge
+        )  # No need to convert to int
 
-    # Create and save the Cart object
-    cart = Cart.objects.create(
-        user=user,
-        product=product,
-        price=price,
-        delevary_charge=delivery_charge,  # delevary_charge
-        discount=discount,
-        total=total,
-    )
+        # Create and save the Cart object
+        cart = Cart.objects.create(
+            user=user,
+            product=product,
+            price=price,
+            delevary_charge=delivery_charge,  # delevary_charge
+            discount=discount,
+            total=total,
+        )
 
-    cart.save()
-    messages.success(
-        request, "The Product is Added Successfully to Your Cart.Check It to Your Cart"
-    )
-    # render(request, "display_product.html", {"msgs": messages})
-    return redirect("display_products")
+        cart.save()
+        messages.success(
+            request,
+            "The Product is Added Successfully to Your Cart.Check It to Your Cart",
+        )
+        # render(request, "display_product.html", {"msgs": messages})
+        return redirect("display_products")
+    else:
+        return redirect("user_login")
 
 
 def go_to_cart(request):

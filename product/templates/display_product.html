@@ -5,7 +5,7 @@
 <div class="prod_cont">
 <h2 class="page_title">Visit Our Products</h2>
   <div class="products">
-    {%for p in products%}
+    {%for p in product%}
     <div class="card" style="width: 20rem">
       <a href="{%url "details" p.id%}"
         ><img class="card-img-top" src="{{p.image.url}}" alt="Card image cap"
@@ -30,4 +30,25 @@
     {%endfor%}
   </div>
 </div>
+
+
+
+<nav aria-label="Page navigation example ">
+    <ul class="pagination d-flex justify-content-center ">
+
+
+      <li class="page-item">
+        <a href="#" class="page-link">Page {{product.number}} of {{product.paginator.num_pages}}</a>
+      </li>
+      {%if product.has_previous%}
+          <li class="page-item"><a class="page-link" href="?page=1"> First Page</a></li>&nbsp &nbsp
+          <li class="page-item"><a class="page-link" href="?page={{product.previous_page_number}}">&laquo Previous Page</a></li>
+      {%endif%}
+
+      {%if product.has_next%}
+        <li class="page-item"><a class="page-link" href="?page={{product.next_page_number}}">Next Page &raquo</a>&nbsp &nbsp </li>
+        <li class="page-item"><a class="page-link" href="?page={{product.paginator.num_pages}}">Last Page</a><l/i>
+      {%endif%}
+  </ul>
+</nav>
 {%endblock%}
