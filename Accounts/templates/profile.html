@@ -1,5 +1,7 @@
 {% extends "base.html" %} {%load static%} {%block stylelink%}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
 
 {%endblock%} {%block content%}
 <div class="profile_container">
@@ -87,23 +89,21 @@
           </thead>
           <tbody>
             {%for dipo in dipos%}
-            <tr>
+            <tr class="dipo-box">
               <td>{{dipo.id}}</td>
               <td>{{dipo.deposit_amount}} Taka</td>
               <td>{{dipo.date_time_field}}</td>
-            </tr>
+            </tr>  
             {%endfor%}
-
+            
             <!-- Add more rows as needed -->
           </tbody>
         </table>
-        <div>
-          <a class="load_btn btn btn-primary mb-3" href="" id="btn"
-            >Load More&nbsp&nbsp<i class="fas fa-arrow-right"></i
-          ></a>
-        </div>
       </div>
     </div>
   </div>
 </div>
-{%endblock%} {%block ScriptLink%} {%endblock%}
+{%endblock%} 
+{%block ScriptLink%} 
+<script src="{%static "js/load_dipo.js"%}"></script>
+{%endblock%}

@@ -13,6 +13,7 @@ from decimal import Decimal
 from deposite.models import Deposit
 from django.http import JsonResponse
 from purchased_product.models import Purchased_Product
+from django.template.loader import render_to_string
 
 # Create your views here
 
@@ -83,7 +84,13 @@ def profile(request):
     return render(
         request,
         "profile.html",
-        {"user": user, "dipos": depo_hist, "bal": balance, "prods": purchased_product},
+        {
+            "user": user,
+            "dipos": depo_hist,
+            "bal": balance,
+            "prods": purchased_product,
+            "total_depo": total_depo,
+        },
     )
 
 
