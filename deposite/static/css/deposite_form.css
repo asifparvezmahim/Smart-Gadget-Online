@@ -1,10 +1,11 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     margin: 0;
+}
+
+.notice{
+    margin-top: 88px;
 }
 
 .form_container{
@@ -12,6 +13,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 35%;
+    margin-top: 16%;
 }
 .container { /* Responsive width */
     width: 100%; /* Maximum width */
@@ -35,7 +38,7 @@ label {
 }
 
 #amount{
-    width: 60%;
+    width: 100%;
     height: 50px;
     margin-bottom: 20px;
 }
@@ -53,6 +56,11 @@ input[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 420px) {
+    /* body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
     .container{
         width: 70%;
     }
@@ -69,5 +77,10 @@ input[type="submit"]:hover {
 
     .form_name{
         margin-bottom: 30px;
+    }
+
+    .form_container{
+       margin-left: 2%;
+       margin-top: 55%;
     }
 }

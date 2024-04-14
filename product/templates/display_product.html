@@ -9,6 +9,7 @@
       <h5>Category</h5>
       <hr>
        <div class="cat_list">
+        <a class="single_cat" href="{% url "display_products"%}">ALL Products</a>
         {%for cat in category%}
           <a class="single_cat" href="{% url "category_wise_products" cat.slug%}">{{cat.name}}</a>      
         {%endfor%}
@@ -17,9 +18,11 @@
     <div class="products">
       {%for p in products%}
       <div class="card" style="width: 20rem">
-        <a href="{%url "details" p.id%}"
-          ><img class="card-img-top" src="{{p.image.url}}" alt="Card image cap"
-        /></a>
+        <div class="img_wrap">
+          <a href="{%url "details" p.id%}">
+            <img class="card-img-top" src="{{p.image.url}}" alt="Card image cap"/>
+          </a>
+        </div>
         <div class="card-body">
           <p class="texr-bold">{{p.name}}</p>
           <div class="d-flex justify-content-between">

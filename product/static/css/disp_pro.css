@@ -74,6 +74,7 @@
     transition: 2s;
 }
 
+
 @media screen and (max-width:576px) {
     .prod_cont{
         margin-top: 25%;
@@ -83,7 +84,7 @@
           display: grid;
           grid-template-columns: repeat(1,1fr);
           justify-items: center;
-          gap: 10px;;
+          gap: 10px;
     }
 
     .prod-cat-cont{

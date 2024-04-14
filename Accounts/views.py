@@ -14,6 +14,7 @@ from deposite.models import Deposit
 from django.http import JsonResponse
 from purchased_product.models import Purchased_Product
 from django.template.loader import render_to_string
+from django.contrib import messages
 
 # Create your views here
 
@@ -54,7 +55,10 @@ def user_reg(request):
                 email = EmailMultiAlternatives(email_subject, "", to=[user_info.email])
                 email.attach_alternative(email_body, "text/html")
                 email.send()
-
+                messages.success(
+                    request,
+                    "We Sent an Email to Your E-Mail Address.Check It.If You Don't Get The Mail, Check Spam !!!!",
+                )
                 return redirect("homepage")
 
     return render(request, "reg.html")
@@ -70,7 +74,11 @@ def activate(request, uid64, token):
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        return redirect("user_login")
+        messages.success(
+            request,
+            "Successfully Registration is Completed. Now You Can Log In To Your Account",
+        )
+        return redirect("homepage")
     else:
         return redirect("homepage")
 

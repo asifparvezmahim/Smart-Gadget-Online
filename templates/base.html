@@ -52,9 +52,7 @@
               </li>
 
 
-              <li class="nav-item">
-                <a class="nav-link mx-lg-4" href="{%url "depo_form"%}">Deposite Form</a>
-              </li>
+
 
               {%if user.is_authenticated%}
               <li class="nav-item dropdown mx-lg-4">
@@ -62,6 +60,7 @@
                   {{user.username}}'s Records
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item mb-2" href="{%url "depo_form"%}"><i class="fa-solid fa-money-bill-transfer"></i> Deposite Now</a></li>
                   <li><a class="dropdown-item mb-2" href="{%url "profile"%}"><i class="fa-solid fa-user"></i> My Profile</a></li>
                   <li><a class="dropdown-item mb-2" href="{%url "go_to_my_cart"%}"><i class="fas fa-cart-plus"></i> My Cart</a></li>
                   <li><a class="dropdown-item mb-2" href="{%url "user_logout"%}"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
