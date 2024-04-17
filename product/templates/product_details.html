@@ -2,20 +2,23 @@
 <link rel="stylesheet" href="{% static 'css/details.css' %}" />
 {%endblock%} {%block content%}
 <div class="details_container">
+  {%for m in messages%}
+    {{m}}
+  {%endfor%}
   <div class="image_container">
     <img src="{{image.url}}" alt="" srcset="" />
   </div>
 
   <div class="info_container">
-    <h4>Product ID : {{id}}</h4>
-    <h5>Product Name : {{prd_name}}</h5>
-    <h5>About Product : {{prd_details}}</h5>
-    <h6>Available : {{available}} Pieces</h6>
+    <h4>Product ID : {{id}}</h4> <br>
+    <h5>Product Name : {{prd_name}}</h5> 
+    <h5>About Product : {{prd_details}}</h5> 
+    <h6>Available : {{available}} Pieces</h6> 
     <hr />
     <p>Base Price : <strong>{{prd_price}} Taka</strong></p>
     <p>Discount : <strong>{{prd_discount}} %</strong></p>
     <p>Delevary Charge : <strong>{{prd_delCharge}} Taka</strong></p>
-    <div class="d-flex justify-content-evenly">
+    <div class="buy_cart_buttons">
       <a class="btn p_btn" href="{%url "myCart" id%}">
         <i class="fas fa-cart-plus"></i> Add to Cart
       </a>
@@ -25,4 +28,42 @@
     </div>
   </div>
 </div>
+<div class="review_rating_cont">
+<p class="rev_sec_name">REVIEWS : ({{total_review}})</p>
+<hr class="hr">
+<div class="review_rating_form">
+      <div class="display_review_rating">
+          {%for r in review%}
+           <div class="cmnt_cont">
+              <div class="cmntAndUser">
+                <span class="reviewr">{{r.user.username}} ({{r.user.email}})</span> <br>
+                {{r.comment}}
+              </div>
+  
+              <div class="dateTime">
+                <small>{{r.date}}</small> <br>
+                <small>{{r.time}}</small>
+              </div>
+           </div>
+          {%endfor%}
+      </div>
+      <div class="post_review_rating">
+          <div class="review">          
+              <div class="review_cont">
+                  <div class="mb-3">
+                      <form method="post" action="{% url 'myRev' id=id %}">
+                        {% csrf_token %}
+                          <input type="hidden" name="id" value="{{ id }}">
+                          <label for="exampleFormControlTextarea1" class="form-label">Give Your Review</label>
+                          <textarea class="form-control cmntBox" id="exampleFormControlTextarea1" rows="3" name="review" required></textarea>
+                          <button type="submit" class="submit_btn">Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+{%endblock%}
+{%block ScriptLink%}
+<script src="{%static "js/ratings.js"%}"></script>
 {%endblock%}

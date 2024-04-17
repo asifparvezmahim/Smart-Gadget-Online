@@ -3,8 +3,13 @@
     display: flex;
     gap: 15px;
     margin-top: 150px;
+    margin-bottom: 10px;
 }
 
+.buy_cart_buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .p_btn{
     border: 1px solid #ffcc00;
@@ -23,3 +28,118 @@
     font-weight: bold;
     color: white;
 }
+
+
+.review_rating_cont{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 120px;
+}
+
+.review_rating_form{
+    display: flex;
+    justify-content: space-between;
+}
+.rev_sec_name{
+    font-size: 30px;
+    font-weight: bold;
+}
+.hr{
+    margin-top: 10px;
+}
+.rating-box {
+    position: relative;
+    background: #fff;
+    padding: 25px 50px 35px;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  }
+  .rating-box header {
+    font-size: 22px;
+    color: #dadada;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .rating-box .stars {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .stars i {
+    color: #e6e6e6;
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .stars i.active {
+    color: #ff9c1a;
+  }
+
+  .submit_btn{
+    padding: 7px 15px;
+    margin-top: 10px;
+    background-color: red;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .cmntBox{
+    border-radius: 20px;
+  }
+
+  .display_review_rating{
+    width: 50%;
+    margin-top: 30px;
+  }
+
+
+  .post_review_rating{
+    width: 40%;
+  }
+
+
+  .rating{
+    margin-bottom: 20px;
+  }
+
+  .reviewr{
+    font-weight: bold;
+  }
+  .cmnt_cont{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: none;    
+  }
+
+  @media screen and (max-width:420px){
+    .buy_cart_buttons{
+      display: flex;
+      justify-content: space-between;
+    }
+
+  .details_container{
+    margin-left: 2%;
+    flex-direction: column;
+    }
+    .display_review_rating{
+      width: 100%;
+      margin-top: 30px;
+    }
+  
+  
+    .post_review_rating{
+      width: 100%;
+    }
+
+    .review_rating_form{
+      flex-direction: column-reverse;
+      
+    }
+
+  }

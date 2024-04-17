@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import product_info
 from django.core.paginator import Paginator
 from product.models import Product_Category
+from productReview.models import ProductReview
 
 
 # Create your views here.
@@ -22,7 +23,7 @@ def diplay_products(request, category_slug=None):
     )
 
 
-def details_page(request, id):
+def details_page(request, id):  # id=product_id
     selected_product = product_info.objects.get(id=id)
     prd_image = selected_product.image
     prd_name = selected_product.name
@@ -32,7 +33,8 @@ def details_page(request, id):
     prd_delCharge = selected_product.delevary_charge
     prd_discount = selected_product.discount
     available_quantity = selected_product.total_available_quantity
-    print(prd_details)
+    review = ProductReview.objects.filter(product=selected_product)
+    total_review = ProductReview.objects.filter(product=selected_product).count()
     return render(
         request,
         "product_details.html",
@@ -46,5 +48,7 @@ def details_page(request, id):
             "prd_delCharge": prd_delCharge,
             "prd_discount": prd_discount,
             "available": available_quantity,
+            "review": review,
+            "total_review": total_review,
         },
     )

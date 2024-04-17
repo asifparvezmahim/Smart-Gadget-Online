@@ -7,6 +7,7 @@ from django.contrib import messages
 # Create your views here.
 # add cart button on product showin
 def myCart(request, id):
+    id = id
     user = request.user
     if user.is_authenticated:
         product = product_info.objects.get(id=id)
@@ -35,7 +36,6 @@ def myCart(request, id):
             request,
             "The Product is Added Successfully to Your Cart.Check It to Your Cart",
         )
-        # render(request, "display_product.html", {"msgs": messages})
         return redirect("display_products")
     else:
         return redirect("user_login")

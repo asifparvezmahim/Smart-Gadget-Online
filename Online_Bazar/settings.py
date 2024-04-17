@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "balance",
     "deposite",
     "purchased_product",
+    "productReview",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
