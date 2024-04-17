@@ -39,11 +39,23 @@ padding-bottom: 20px;
 padding-left: 70px;
 padding-right: 70px;
 background-color: orange;
+margin: 0;
 }
 
 .comp_name {
 font-size: 25px;
 font-weight: bolder;
+}
+
+.demo_product_cont{
+    margin-top: 120px;
+}
+
+.sec_title{
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 40px;
 }
 
 @media only screen and (max-width: 420px){

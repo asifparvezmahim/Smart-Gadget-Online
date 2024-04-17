@@ -1,16 +1,21 @@
 {% extends "base.html" %} {%load static%} {%block stylelink%}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-<script
-  src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
-  crossorigin="anonymous"
-  defer
-></script>
 <link
   href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
   rel="stylesheet"
   crossorigin="anonymous"
 />
+<link
+  href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+  rel="stylesheet"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+  crossorigin="anonymous"
+  defer
+></script>
 {%endblock%} {%block content%}
 <div class="home_cont">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -58,6 +63,65 @@
     ></button>
   </div>
   {%endif%} {%endfor%}
-  <h3>Home Page</h3>
+  <div class="home_banner">
+    <div class="swiffy-slider">
+      <ul class="slider-container">
+        {% for img in images %}
+        <li>
+          <img src="{{img.image.url}}" style="max-width: 100%; height: 90" />
+        </li>
+        {% endfor %}
+      </ul>
+
+      <button type="button" class="slider-nav"></button>
+      <button type="button" class="slider-nav slider-nav-next"></button>
+    </div>
+  </div>
 </div>
+{%endblock%} {%block ScriptLink%}
+
+<div class="demo_product_cont">
+  <div class="demo_product_cont">
+    <h3 class="sec_title">Demo Products</h3>
+    <hr class="hr">
+    <div class="demo_products">
+      {%for d in demos%}
+      <div class="card" style="width: 20rem">
+        <div class="img_wrap">
+          <a href="{%url "details" d.id%}">
+            <img class="card-img-top" src="{{d.image.url}}" alt="Card image cap"/>
+          </a>
+        </div>
+        <div class="card-body">
+          <p class="texr-bold">{{d.name}}</p>
+          <div class="d-flex justify-content-between">
+            <h6 class="">Price : {{d.price}}</h6>
+            <h6 class="">Discount : {{d.discount}} %</h6>
+          </div>
+  
+          <div class="d-flex justify-content-between">
+            <a class="btn p_btn" href="{%url "myCart" d.id%}">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </a>
+            <a class="btn d_btn" href="{%url "purchased_from_product_section" d.id%}">
+              <i class="fas fa-shopping-cart"></i> Buy Now
+            </a>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+    <a href="" class="all_prd_btn">Load All Products</a>
+  </div>
+</div>
+
+<div class="footer">
+  <footer>
+  </footer>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+  crossorigin="anonymous"
+  defer
+></script>
 {%endblock%}
