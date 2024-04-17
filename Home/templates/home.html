@@ -80,7 +80,7 @@
 </div>
 {%endblock%} {%block ScriptLink%}
 
-<div class="demo_product_cont">
+
   <div class="demo_product_cont">
     <h3 class="sec_title">Demo Products</h3>
     <hr class="hr">
@@ -111,12 +111,47 @@
       </div>
       {%endfor%}
     </div>
-    <a href="" class="all_prd_btn">Load All Products</a>
+    <div class="all_button_container">
+      <a href="{%url "load_all"%}" class="all_prd_btn">Load All Products <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
   </div>
-</div>
 
-<div class="footer">
+
+<div class="footer_cont">
   <footer>
+       <div class="first_section">
+          <p class="title">Want To Connect With Us ? </p>
+          <p class="describe">You Can Believe Us And Can Use Our Products.We Will Try To Give You Best Product</p>
+          <div class="start_button">
+            <a href="">GET START</a>
+          </div>
+       </div>
+
+       <div class="second_section">
+            <div class="company_identity">
+                  <p><span class="company_name">Smart Gadget Online</span><br> <span class="moto">A Trusted E-Commerce</span></p>
+            </div>
+            <div class="about">
+                 <p class="about_title">ABOUT</p>
+                 <span class="about_span">Goal</span> <br>
+                 <span class="about_span">Sponsors</span>
+            </div>
+            <div class="support">
+                 <p class="support_title">Support</p>
+                 <span class="support_span">E-Mail</span> <br>
+                 <span class="support_span">Request for One to One</span>
+            </div>
+
+            <div class="support">
+                 <p class="support_title">Support</p>
+                  <div class="icons">
+                    <i class="fa-brands fa-facebook-f" style="color:white;"></i> &nbsp
+                    <i class="fa-brands fa-youtube"></i>&nbsp
+                    <i class="fa-brands fa-whatsapp"></i>&nbsp
+                    <i class="fa-brands fa-instagram"></i>&nbsp
+                  </div>
+            </div>
+       </div>
   </footer>
 </div>
 <script
