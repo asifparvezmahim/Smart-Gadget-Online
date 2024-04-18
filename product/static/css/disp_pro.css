@@ -1,8 +1,3 @@
-.prod_cont{
-    margin-top: 8%;
-    /* background-color: white */
-}
-
 .p_btn{
     border: 1px solid #ffcc00;
     padding:5px 15px;
@@ -77,11 +72,7 @@
 }
 
 
-@media screen and (max-width:576px) {
-    .prod_cont{
-        margin-top: 35%;
-        /* background-color: white */
-    }
+@media screen and (max-width:420px) {
     .products{
           display: grid;
           grid-template-columns: repeat(1,1fr);

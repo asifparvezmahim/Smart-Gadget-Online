@@ -18,14 +18,22 @@
     <p>Base Price : <strong>{{prd_price}} Taka</strong></p>
     <p>Discount : <strong>{{prd_discount}} %</strong></p>
     <p>Delevary Charge : <strong>{{prd_delCharge}} Taka</strong></p>
-    <div class="buy_cart_buttons">
-      <a class="btn p_btn" href="{%url "myCart" id%}">
-        <i class="fas fa-cart-plus"></i> Add to Cart
-      </a>
-      <a class="btn d_btn" href="{%url "purchased_from_product_section" id%}">
-        <i class="fas fa-shopping-cart"></i> Buy Now
-      </a>
-    </div>
+
+    {%if available|add:0 > 0 %}
+      <div class="buy_cart_buttons">
+        <a class="btn p_btn" href="{%url "myCart" id%}">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </a>
+        <a class="btn d_btn" href="{%url "purchased_from_product_section" id%}">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </a>
+      </div>
+    {%else%}
+      <div class="buy_cart_buttons">
+          <h3 class="text-danger">OUT OF STOCK</h3>
+      </div>
+    {%endif%}
+
   </div>
 </div>
 <div class="review_rating_cont">

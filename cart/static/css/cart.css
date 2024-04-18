@@ -7,6 +7,9 @@
     margin-top: 10%;
 }
 
+.page_title{
+    margin-bottom: 30px;
+}
 
 @media only screen and (max-width: 420px) {
     .prod_cont{

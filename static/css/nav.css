@@ -1,3 +1,10 @@
+/* .body{
+    background-color: rgb(209, 230, 218);
+} */
+
+.prod-cat-cont{
+    margin-top: 100px;
+}
 .buttons {
 background-color: #009970;
 color: #fff;
@@ -59,6 +66,10 @@ font-weight: bolder;
 }
 
 @media only screen and (max-width: 420px){
+.prod-cat-cont{
+    margin-top: 50px;
+}
+
 .nav {
     padding-left: 10px;
 }

@@ -37,13 +37,11 @@ def purchased_product_from_product_section(request, id):
             )
             new_user_balance = user_balance - total_payment
             Balance.objects.filter(user=user).update(balance=new_user_balance)
-
-        elif available_product <= 0:
-            # product is not available
-            pass
+            messages.success(request, "Product Purchase Successfully")
 
         else:
-            print("Less Balance")
+            messages.warning(request, "You Have Not Sufficient Balance")
+
         return redirect("display_products")
 
     else:

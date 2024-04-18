@@ -118,6 +118,7 @@
   }
 
   @media screen and (max-width:420px){
+
     .buy_cart_buttons{
       display: flex;
       justify-content: space-between;

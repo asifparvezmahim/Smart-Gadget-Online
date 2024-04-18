@@ -5,12 +5,20 @@
 
 {%endblock%} {%block content%}
 <div class="profile_container">
-  <div class="balance_cont">
-    <p class="balance">Balance: <span>{{bal}}</span> Taka</p>
-  </div>
   <div class="info_skills">
     <div class="info_box">
       <h3 class="sec_title">Personal Information</h3>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">User Balance</label>
+        <input
+          type="text"
+          class="form-control form_box"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+          value="{{bal}} Taka"
+          readonly
+        />
+      </div>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">User ID</label>
         <input

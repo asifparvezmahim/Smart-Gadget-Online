@@ -39,6 +39,7 @@ def details_page(request, id):  # id=product_id
         request,
         "product_details.html",
         {
+            "selected_product": selected_product,
             "id": id,
             "cat": prd_cat,
             "prd_name": prd_name,
