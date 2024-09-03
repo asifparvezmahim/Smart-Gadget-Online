@@ -24,6 +24,8 @@ def diplay_products(request, category_slug=None):
 
 
 def details_page(request, id):  # id=product_id
+    if not request.user.is_authenticated:
+        return redirect("user_login")
     selected_product = product_info.objects.get(id=id)
     prd_image = selected_product.image
     prd_name = selected_product.name
